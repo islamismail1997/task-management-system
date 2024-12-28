@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "feb17d9e-8398-44a1-9309-391ab8fe71d8",
+		"name": "Task Management and Report Subscription System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40678853"
+	},
+	"item": [
+		{
+			"name": "Auth - Tasks APIs",
+			"item": [
+				{
+					"name": "Sign-Up (POST /signup)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzU0MDAwODh9.2PPNp0xIkCxPtZ1CwfFbMnDLMHaQ_t85UMdZpALoXdg",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Islam_Ismail\",\r\n  \"email\": \"islamismail19997@gmail.com\",\r\n  \"password\": \"password123\"\r\n}\r\n{\r\n  \"username\": \"test_user\", \r\n  \"email\": \"test_user@example.com\", \r\n  \"password\": \"password123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"signup"
+							]
+						},
+						"description": "### Signup Endpoint\n\nThis endpoint allows users to sign up by providing their username, email, and password.\n\n#### Request Body\n\n- `username` (string): The username of the user.\n    \n- `email` (string): The email address of the user.\n    \n- `password` (string): The password for the user's account.\n    \n\n``` json\n{\n  \"username\": \"example_user\",\n  \"email\": \"example_user@gmail.com\",\n  \"password\": \"password123\"\n}\n\n ```\n\n#### Response\n\nThe response for this request is a JSON object with the following schema:\n\nResponse(Successful):\n\n``` json\n{\n  \"message\": \"User created successfully!\"\n}\n\n ```\n\nResponse(Error):\n\n``` json\n{\n  \"message\": \"Email already exists!\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign-In(POST)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3MzU0MDU4Mzl9.76oYDH_N-kTzRBjVc__961OQFKlA1xnhaCTJgCM73og",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"islamismail19997@gmail.com\",\r\n  \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/signin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"signin"
+							]
+						},
+						"description": "### Sign In\n\nThis endpoint is used to authenticate and sign in a user.\n\n#### Request Body\n\n- `email` (string): The email address of the user.\n    \n- `password` (string): The password of the user.\n    \n\n``` json\n{\n  \"email\": \"example_user@gmail.com\",\n  \"password\": \"password123\"\n}\n\n ```\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n- `token` (string): The authentication token for the signed-in user.\n    \n\nResponse (Success):\n\n``` json\n{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI...\"\n}\n\n ```\n\nResponse (Error):\n\n``` json\n{\n  \"message\": \"Invalid credentials!\"\n}\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Create_Task (POST)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3MzU0MTg1NzJ9.stOhvwVWvS1RElt_fMOaqT3NjF3zPDPnJzxI2DBTFdY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Old Monthly Task\",\r\n  \"description\": \"This task should not appear in the report\",\r\n  \"start_date\": \"2024-10-10T10:00:00\",\r\n  \"due_date\": \"2024-11-01T10:00:00\",\r\n  \"status\": \"Pending\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"tasks"
+							]
+						},
+						"description": "### Add New Task\n\nThis endpoint allows the user to add a new task by sending a POST request to the specified URL.\n\n#### Request Body\n\n- title (string, required): The title of the task.\n    \n- description (string, required): A description of the task.\n    \n- start_date (string, required): The start date and time of the task in ISO format (e.g. \"2024-10-10T10:00:00\").\n    \n- due_date (string, required): The due date and time of the task in ISO format (e.g. \"2024-11-01T10:00:00\").\n    \n- status (string, required): The status of the task (e.g. \"Pending\").\n    \n\n``` json\n{\n  \"title\": \"Example Task\",\n  \"description\": \"This is an example task.\",\n  \"start_date\": \"2024-12-28T10:00:00\",\n  \"due_date\": \"2024-12-30T10:00:00\",\n  \"status\": \"Pending\"\n}\n\n ```\n\n#### Response\n\nUpon successful creation of the task, the endpoint returns a 201 status code with a JSON response containing a message.\n\nExample:\n\n``` json\n{\n    \"message\": \"Task created successfully!\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve_Tasks(GET)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzUzNDg1OTh9.ibSCpzcFHXoXIHF8PdDuFlsbrfx8O6J3EROEMzk5PIk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Completed",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2024-12-28",
+									"disabled": true
+								}
+							]
+						},
+						"description": "### Retrieve Tasks\n\nThis endpoint is used to retrieve a list of tasks.\n\n#### Request\n\n- Method: GET\n    \n- URL: `http://127.0.0.1:5000/tasks`\n    \n\n#### Response\n\nThe response for this request follows the JSON schema below:\n\n``` json\n[\n  {\n    \"id\": 1,\n    \"title\": \"Example Task\",\n    \"description\": \"This is an example task.\",\n    \"start_date\": \"2024-12-28T10:00:00\",\n    \"due_date\": \"2024-12-30T10:00:00\",\n    \"status\": \"Pending\"\n  }\n]\n\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Task(PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzUzNDg1OTh9.ibSCpzcFHXoXIHF8PdDuFlsbrfx8O6J3EROEMzk5PIk",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Updated Task\",\r\n  \"status\": \"Completed\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						},
+						"description": "### **Update Tasks**\n\nThis endpoint allows updating an existing task by sending an HTTP PUT request to [http://127.0.0.1:5000/tasks/1](http://127.0.0.1:5000/tasks/1).\n\nThe request should include a JSON payload in the raw request body type with the following parameters:\n\n- title (string): The updated title of the task.\n    \n- status (string): The updated status of the task.\n    \n\nUpon a successful update, the response will contain the details of the updated task."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzUzNDg1OTh9.ibSCpzcFHXoXIHF8PdDuFlsbrfx8O6J3EROEMzk5PIk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/tasks/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"1"
+							]
+						},
+						"description": "### Delete Task\n\nThis endpoint is used to delete a specific task by providing the task ID in the URL.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\nThe response will not contain a response body. The status code will indicate the success or failure of the request.\n\n``` json\n{\n  \"message\": \"Unsubscribed successfully!\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch Delete Tasks",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzUzNDg1OTh9.ibSCpzcFHXoXIHF8PdDuFlsbrfx8O6J3EROEMzk5PIk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/tasks?start_date=2024-12-28&end_date=2024-12-30",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2024-12-28"
+								},
+								{
+									"key": "end_date",
+									"value": "2024-12-30"
+								}
+							]
+						},
+						"description": "This endpoint sends an HTTP DELETE request to delete tasks within a specified date range. The request should include the start_date and end_date as query parameters in the URL.\n\n### Response:\n\nResponse (Success):\n\n``` json\n\n{\n  \"message\": \"3 tasks deleted successfully!\"\n}\n\n ```\n\nResponse (Error - Missing Parameters):\n\n``` json\n{\n  \"message\": \"start_date and end_date are required!\"\n}\n\n\n\n ```\n\nResponse (Error - Invalid Format):\n\n``` json\n{\n  \"message\": \"Invalid date format! Use YYYY-MM-DD.\"\n}\n\n ```\n\nResponse (Error = No Tasks Found):\n\n``` json\n{\n  \"message\": \"No tasks found within the specified date range.\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Last Deleted Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzUzNDg1OTh9.ibSCpzcFHXoXIHF8PdDuFlsbrfx8O6J3EROEMzk5PIk",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/tasks/restore",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"tasks",
+								"restore"
+							]
+						},
+						"description": "### Restore Task\n\nThis endpoint allows the user to restore a task by sending a POST request to the specified URL.\n\n#### Request Body\n\n- `task_id` (text, required): The ID of the task to be restored.\n    \n\n#### Response\n\nResponse (Success):\n\n``` json\n{\n  \"message\": \"Task restored successfully!\"\n}\n\n ```\n\nResponse (Error - No Deleted Tasks):\n\n``` json\n{\n  \"message\": \"No recently deleted task found!\"\n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"description": "This Endpoints are to test :  \n1-the Authentication Features (SignIn/Up) in the App.\n\n2- the Tasks Features in the DB (CRUD) Operations"
+		},
+		{
+			"name": "Subscriptions APIs",
+			"item": [
+				{
+					"name": "Subscribe to Reports",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE3MzU0MTg1NzJ9.stOhvwVWvS1RElt_fMOaqT3NjF3zPDPnJzxI2DBTFdY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"start_date\": \"2024-12-28T00:00:00\",\r\n  \"frequency\": \"daily\",\r\n  \"report_time\": 8\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/subscriptions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"subscriptions"
+							]
+						},
+						"description": "### POST /subscriptions\n\nThis endpoint is used to create a new subscription.\n\n#### Request Body\n\n- `start_date` (string): The start date of the subscription in the format \"YYYY-MM-DDTHH:MM:SS\".\n    \n- `frequency` (string): The frequency of the subscription (e.g. daily, weekly, monthly, etc.).\n    \n- `report_time` (integer): The time of day when the report should be generated.\n    \n\n``` json\n{\n  \"start_date\": \"2024-12-28T08:00:00\",\n  \"frequency\": \"daily\",\n  \"report_time\": 8\n}\n\n ```\n\n#### Response\n\nResponse (Success):\n\n``` json\n{\n  \"message\": \"Subscribed successfully!\"\n}\n\n\n ```\n\nResponse (Error - Already Subscibed):\n\n``` json\n{\n  \"message\": \"You are already subscribed!\"\n}\n\n\n ```\n\nResponse (Error - Missing Fields):\n\n``` json\n{\n  \"message\": \"Missing required fields!\"\n}\n\n\n ```\n\nResponse (Error - Invalid Fields):\n\n``` json\n{\n  \"message\": \"Invalid frequency! Must be daily, weekly, or monthly.\"\n}\n\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Unsubscribe from Reports",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE3MzU0MDAwODh9.2PPNp0xIkCxPtZ1CwfFbMnDLMHaQ_t85UMdZpALoXdg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/subscriptions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"subscriptions"
+							]
+						},
+						"description": "### Delete Subscription\n\nThis endpoint is used to delete a subscription.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n\nExample response body:\n\n**Response (Success):**\n\n``` json\n{\n  \"message\": \"Unsubscribed successfully!\"\n}\n\n\n ```\n\n**Response (Error - No Subscription Found):**\n\n``` json\n{\n  \"message\": \"No subscription found!\"\n}\n\n\n ```"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
