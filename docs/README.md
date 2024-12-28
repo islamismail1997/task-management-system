@@ -1,11 +1,9 @@
-1. Project Title and Description:
 
 # Task Management and Report Subscription System
 
 This project is a Flask-based backend system for managing tasks and sending task reports to subscribed users. It includes features such as user authentication, task management (CRUD operations), and automated report generation for daily, weekly, and monthly frequencies.
 ____________________________________________________________________________________________________________________
 
-2. Table of Contents:
 
 ## Table of Contents
 - [Features](#features)
@@ -16,7 +14,6 @@ ________________________________________________________________________________
 - [Project Structure](#project-structure)
 ____________________________________________________________________________________________________________________
 
-3. Features:
 
 ## Features
 - **Authentication**: Sign-Up and Sign-In functionality with JWT-based authentication.
@@ -32,7 +29,6 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________________________________________
 
-4.  Technologies Used:
 
 ## Technologies Used
 - **Backend Framework**: Flask
@@ -44,7 +40,6 @@ ________________________________________________________________________________
 
 ____________________________________________________________________________________________________________________
 
-5. Setup Instructions:
 
 ## Setup Instructions
 1. **Clone the Repository**:
@@ -65,21 +60,22 @@ ________________________________________________________________________________
         MAIL_PASSWORD=your_email_password
 ____________________________________________________________________________________________________________________
 
-6. How to Run:
+
 ### how to run
     - Run the Application:
         python run.py
 ____________________________________________________________________________________________________________________
 
-7. API Documentation:
+
 
 ## api documentation
-    - The full API documentation is included in the Postman collection.
-    - You can import the `docs/TaskManagementAPI.postman_collection.json` file into Postman to view and test all endpoints.
+  - Postman Collection: [Task Management API Postman Collection](docs/TaskManagementAPI.postman_collection.json)
+  - The full API documentation is included in the Postman collection.
+  - You can import the `docs/TaskManagementAPI.postman_collection.json` file into Postman to view and test all      endpoints.
 
 ____________________________________________________________________________________________________________________
 
-8. Project Structure:
+
 
 ## project structure
 
