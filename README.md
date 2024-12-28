@@ -8,8 +8,7 @@ ________________________________________________________________________________
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Setup Instructions](#setup-instructions)
-- [How to Run](#how-to-run)
+- [Setup Instructions](#setup-instructions-How-to-Run)
 - [API Documentation](#api-documentation)
 - [Project Structure](#project-structure)
 ____________________________________________________________________________________________________________________
@@ -41,15 +40,18 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________________________
 
 
-## Setup Instructions
+## Setup Instructions-How to Run
 1. **Clone the Repository**:
      git clone https://github.com/islamismail1997/task-management-system.git
          cd task-management-system
+         
 2. **Create and Activate Virtual Environment**:
         python -m venv env
             env\Scripts\activate
+
 3. **Install Dependencies**:
         pip install -r requirements.txt
+
 4. **Set Up Environment Variables**:
     -Create a .env file in the root directory and add the following:
         SECRET_KEY=your_secret_key
@@ -58,14 +60,10 @@ ________________________________________________________________________________
         MAIL_USE_TLS=True
         MAIL_USERNAME=your_email@gmail.com
         MAIL_PASSWORD=your_email_password
-____________________________________________________________________________________________________________________
 
-
-### how to run
-    - Run the Application:
+5. **Run the Application**:
         python run.py
 ____________________________________________________________________________________________________________________
-
 
 
 ## api documentation
