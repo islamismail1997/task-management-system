@@ -134,4 +134,4 @@ ________________________________________________________________________________
 
 ## Project Structure
 
-![alt text](<Project Structure.png>)
+![alt text](project-structure-1.png)
