@@ -80,18 +80,6 @@ def subscribe(current_user_id):
     return jsonify({'message': 'Subscribed successfully!'}), 201
 
 
-    # # Create and save the new subscription
-    # new_subscription = Subscription(
-    #     start_date=start_date,
-    #     frequency=frequency,
-    #     report_time=int(report_time),
-    #     user_id=current_user_id
-    # )
-    # db.session.add(new_subscription)
-    # db.session.commit()
-    # return jsonify({'message': 'Subscribed successfully!'}), 201
-
-
 # Unsubscribe from Task Reports
 @subscriptions_bp.route('/subscriptions', methods=['DELETE'])
 @token_required

@@ -77,18 +77,5 @@ ________________________________________________________________________________
 
 ## project structure
 
-Task Managment project/
-├── app/
-│   ├── __init__.py       # App factory and initialization
-│   ├── models.py         # Database models
-│   ├── routes/
-│   │   ├── auth.py       # Authentication routes
-│   │   ├── tasks.py      # Task routes
-│   │   ├── subscriptions.py  # Subscription routes
-├── docs/
-│   ├── TaskManagementAPI.postman_collection.json  # Postman collection file
-│   ├── README.md        # Project README file
-├── requirements.txt     # Python dependencies
-├── run.py               # Entry point to run the Flask app
-
+![alt text](image-1.png)
 
